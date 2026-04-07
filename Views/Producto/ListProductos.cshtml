@@ -1,0 +1,47 @@
+﻿@model IEnumerable<DSWI_T1_RosalesGian.Dtos.ProductoDto>
+
+<div class="container mt-5">
+    <h1 class="text-center">Lista de Productos</h1>
+
+    <div class="d-flex justify-content-between mb-3">
+        <a asp-action="Create" class="btn btn-primary">Agregar Producto</a>
+        <a asp-action="Index" class="btn btn-secondary">Volver al Menú</a>
+    </div>
+
+    <hr />
+
+    <table class="table table-bordered table-hover shadow-sm">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Nombre del Producto</th>
+                <th>Precio Unitario</th>
+                <th class="text-center">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var product in Model)
+                {
+                    <tr>
+                        <td>@product.IdProducto</td>
+                        <td>@product.NomProducto</td>
+                        <td>@(product.Precio.HasValue? product.Precio.Value.ToString("C") : "S/ 0.00")</td>
+                        <td class="text-center">
+                            <a asp-action="Edit" asp-route-id="@product.IdProducto" class="btn btn-sm btn-warning">
+                                Editar
+                            </a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4" class="text-center">No se encontraron productos.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

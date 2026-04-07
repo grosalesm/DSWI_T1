@@ -1,0 +1,17 @@
+﻿<h1>Resultado de la Llamada</h1>
+<hr />
+
+<div class="alert alert-info shadow-sm">
+    <p>Cantidad de minutos ingresados: <b>@ViewBag.MinutosIngresados</b></p>
+    <p>El costo total de la llamada es: <b>$ @ViewBag.CostoTotal</b></p>
+</div>
+
+<div class="mt-4 d-flex gap-2">
+    <a asp-controller="Llamada" asp-action="Registrar" class="btn btn-primary">
+        Realizar otro cálculo
+    </a>
+
+    <a asp-controller="Producto" asp-action="Index" class="btn btn-secondary">
+        Volver al Inicio
+    </a>
+</div>

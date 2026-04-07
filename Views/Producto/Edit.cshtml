@@ -1,0 +1,27 @@
+﻿@model DSWI_T1_RosalesGian.Dtos.ProductoDto
+
+<div class="container mt-5">
+    <h1 class="text-center">Editar Producto</h1>
+
+    <form asp-action="Edit" method="post" class="mt-4 shadow p-4 rounded bg-light">
+        <input type="hidden" asp-for="IdProducto" />
+
+        <div class="mb-3">
+            <label for="ProductName" class="form-label">Nombre del Producto</label>
+            <input type="text" asp-for="NomProducto" class="form-control" id="ProductName" required>
+            <span asp-validation-for="NomProducto" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="UnitPrice" class="form-label">Precio Unitario</label>
+            <input type="number" asp-for="Precio" class="form-control" id="UnitPrice" step="0.01">
+            <span asp-validation-for="Precio" class="text-danger"></span>
+        </div>
+
+        <div class="mt-4 d-flex gap-2">
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+
+            <a asp-action="ListProductos" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </form>
+</div>
